@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) CWBezierChartView *bezierChartView;
 
+@property (nonatomic, strong) NSArray           *pointCounts;
 @property (nonatomic, strong) NSMutableArray    *pointDatas;
 
 @end
@@ -42,9 +43,10 @@
     bgView.alpha = 0.2;
     [self.view addSubview:bgView];
     
-    self.bezierChartView = [[CWBezierChartView alloc] initWithFrame:CGRectMake(10, 100, self.view.bounds.size.width - 20, curHeight)];
+    self.bezierChartView = [[CWBezierChartView alloc] initWithFrame:CGRectMake(10, 100, self.view.bounds.size.width - 20, curHeight + 30)];
     self.bezierChartView.backgroundColor = [UIColor clearColor];
-    self.bezierChartView.datas = self.pointDatas;
+    self.bezierChartView.heightPoints = self.pointCounts;
+    self.bezierChartView.heightDatas = self.pointDatas;
     self.bezierChartView.delegate = self;
     [self.view addSubview:self.bezierChartView];
     
@@ -78,14 +80,16 @@
     _selectPoint = 0;
     _changeOne = NO;
     
-    self.bezierChartView.datas = self.pointDatas;
+    self.bezierChartView.heightPoints = self.pointCounts;
+    self.bezierChartView.heightDatas = self.pointDatas;
     [self.bezierChartView showAllLine];
     [self.bezierChartView hiddenAllTitle];
 }
 
 - (void)initDatas
 {
-    self.pointDatas = [[NSMutableArray alloc] initWithArray:@[@76,@60,@75,@68,@55,@86,@77]];
+    self.pointCounts = @[@0, @2, @3, @4, @6, @10];
+    self.pointDatas = [[NSMutableArray alloc] initWithArray:@[@24,@40,@35,@28,@25,@36,@26,@40,@15,@28,@35,@26]];
     
     _selectPoint = 0;
     _changeOne = NO;
@@ -127,7 +131,8 @@
             }
         }
     }
-    self.bezierChartView.datas = self.pointDatas;
+    self.bezierChartView.heightPoints = self.pointCounts;
+    self.bezierChartView.heightDatas = self.pointDatas;
     if (_changeOne) {
         [self.bezierChartView showLineWithTag:_selectPoint];
         [self.bezierChartView showTitleWithTag:_selectPoint];
@@ -166,3 +171,4 @@
 
 
 @end
+

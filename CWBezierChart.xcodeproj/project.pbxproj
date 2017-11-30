@@ -15,8 +15,8 @@
 		A77034DF1F4678A600C05BD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77034DD1F4678A600C05BD4 /* LaunchScreen.storyboard */; };
 		A77034EA1F4678A700C05BD4 /* CWBezierChartTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A77034E91F4678A700C05BD4 /* CWBezierChartTests.m */; };
 		A77034F51F4678A700C05BD4 /* CWBezierChartUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A77034F41F4678A700C05BD4 /* CWBezierChartUITests.m */; };
-		A77035051F4678D200C05BD4 /* CWBezierChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A77035041F4678D200C05BD4 /* CWBezierChartView.m */; };
 		A77418991F481FFA007DBBA2 /* WX20170819-152716.png in Resources */ = {isa = PBXBuildFile; fileRef = A77418981F481FFA007DBBA2 /* WX20170819-152716.png */; };
+		EEA464571FD00BF100CCFCF0 /* CWBezierChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA464561FD00BF100CCFCF0 /* CWBezierChartView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,9 +53,9 @@
 		A77034F01F4678A700C05BD4 /* CWBezierChartUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CWBezierChartUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77034F41F4678A700C05BD4 /* CWBezierChartUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CWBezierChartUITests.m; sourceTree = "<group>"; };
 		A77034F61F4678A700C05BD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A77035031F4678D200C05BD4 /* CWBezierChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBezierChartView.h; sourceTree = "<group>"; };
-		A77035041F4678D200C05BD4 /* CWBezierChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBezierChartView.m; sourceTree = "<group>"; };
 		A77418981F481FFA007DBBA2 /* WX20170819-152716.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WX20170819-152716.png"; sourceTree = "<group>"; };
+		EEA464551FD00BF100CCFCF0 /* CWBezierChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWBezierChartView.h; sourceTree = "<group>"; };
+		EEA464561FD00BF100CCFCF0 /* CWBezierChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWBezierChartView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,8 +150,8 @@
 		A77035021F4678BF00C05BD4 /* CWbezierChartView */ = {
 			isa = PBXGroup;
 			children = (
-				A77035031F4678D200C05BD4 /* CWBezierChartView.h */,
-				A77035041F4678D200C05BD4 /* CWBezierChartView.m */,
+				EEA464551FD00BF100CCFCF0 /* CWBezierChartView.h */,
+				EEA464561FD00BF100CCFCF0 /* CWBezierChartView.m */,
 			);
 			path = CWbezierChartView;
 			sourceTree = "<group>";
@@ -293,7 +293,7 @@
 			files = (
 				A77034D71F4678A600C05BD4 /* ViewController.m in Sources */,
 				A77034D41F4678A600C05BD4 /* AppDelegate.m in Sources */,
-				A77035051F4678D200C05BD4 /* CWBezierChartView.m in Sources */,
+				EEA464571FD00BF100CCFCF0 /* CWBezierChartView.m in Sources */,
 				A77034D11F4678A600C05BD4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
