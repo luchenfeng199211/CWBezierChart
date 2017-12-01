@@ -69,14 +69,22 @@ static const int maxHeight = 120;
     
     if (_pointArray.count) {
         oldPoint = CGPointMake(0, CGPointFromString(_pointArray[0]).y);
+        newPoint = CGPointFromString(_pointArray.firstObject);
         [path moveToPoint:oldPoint];
+        [path addCurveToPoint:newPoint controlPoint1:CGPointMake((newPoint.x+oldPoint.x)/2, oldPoint.y) controlPoint2:CGPointMake((newPoint.x+oldPoint.x)/2, newPoint.y)];
+        
+        CGPoint fristPoint = CGPointMake(0, CGPointFromString(_pointArray[0]).y);
+        [_pointArray insertObject:NSStringFromCGPoint(fristPoint) atIndex:0];
+        CGPoint curPoint = CGPointFromString([_pointArray lastObject]);
+        CGPoint lastPoint = CGPointMake(self.frame.size.width, curPoint.y);
+        [_pointArray addObject:NSStringFromCGPoint(lastPoint)];
         for (int i = 0; i < _pointArray.count - 3; i++) {
             CGPoint p1 = CGPointFromString([_pointArray objectAtIndex:i]);
             CGPoint p2 = CGPointFromString([_pointArray objectAtIndex:i+1]);
             CGPoint p3 = CGPointFromString([_pointArray objectAtIndex:i+2]);
             CGPoint p4 = CGPointFromString([_pointArray objectAtIndex:i+3]);
             if (i == 0) {
-                [path addCurveToPoint:p1 controlPoint1:CGPointMake((p1.x+oldPoint.x)/2, oldPoint.y) controlPoint2:CGPointMake((p1.x+oldPoint.x)/2, p1.y)];
+                [path moveToPoint:p2];
             }
             [self getControlPointx0:p1.x andy0:p1.y x1:p2.x andy1:p2.y x2:p3.x andy2:p3.y x3:p4.x andy3:p4.y path:path];
         }

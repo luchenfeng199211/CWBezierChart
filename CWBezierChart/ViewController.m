@@ -88,7 +88,7 @@
 
 - (void)initDatas
 {
-    self.pointCounts = @[@0, @2, @3, @4, @6, @10];
+    self.pointCounts = @[@0, @1, @3, @4, @6, @10];
     self.pointDatas = [[NSMutableArray alloc] initWithArray:@[@24,@40,@35,@28,@25,@36,@26,@40,@15,@28,@35,@26]];
     
     _selectPoint = 0;
