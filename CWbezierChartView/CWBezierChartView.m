@@ -9,7 +9,8 @@
 #import "CWBezierChartView.h"
 
 static const int maxHeight = 120;
-#define Bezier_Chart_Tips @[@"头部", @"肩部", @"背部", @"腰部", @"臀部", @"腿部"]
+#define Bezier_Chart_Tips @[@"Head", @"Shoulder", @"Back", @"Lumbar", @"Hip", @"Leg"]
+//#define Bezier_Chart_Tips @[@"头部", @"肩部", @"背部", @"腰部", @"臀部", @"腿部"]
 
 @interface CWBezierChartView ()
 
@@ -17,8 +18,6 @@ static const int maxHeight = 120;
 @property (nonatomic, strong) CAShapeLayer              *lineLayer;
 @property (nonatomic, strong) NSMutableArray            *pointArray;
 @property (nonatomic, strong) UIView                    *chartBgView;
-
-@property (nonatomic, assign) BOOL                      safeLoop;
 
 @end
 
@@ -37,7 +36,6 @@ static const int maxHeight = 120;
     self = [super initWithFrame:frame];
     if (self) {
         self.pointArray = [[NSMutableArray alloc] init];
-        _safeLoop = YES;
     }
     return self;
 }
@@ -201,13 +199,16 @@ static const int maxHeight = 120;
                 lineView.tag = i + 1000;
                 [self.chartBgView addSubview:lineView];
 
-                UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(point.x - 20, lineView.frame.origin.y + lineView.frame.size.height, 40, 20)];
+                UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(point.x - 15, lineView.frame.origin.y + lineView.frame.size.height, 30, 20)];
                 NSInteger tipCount = [pointArray indexOfObject:[NSNumber numberWithInt:i]];
                 tipLabel.text = Bezier_Chart_Tips[tipCount];
                 tipLabel.textColor = [UIColor whiteColor];
                 tipLabel.textAlignment = NSTextAlignmentCenter;
                 tipLabel.font = [UIFont systemFontOfSize:12];
                 [self.chartBgView addSubview:tipLabel];
+                // 如果是英文状态下，旋转label并改变label长度
+                tipLabel.frame = CGRectMake(point.x - 30, lineView.frame.origin.y + lineView.frame.size.height, 60, 20);
+                tipLabel.transform = CGAffineTransformMakeRotation(-M_PI/6);
 
                 UIImageView *pointLabelImg = [[UIImageView alloc] initWithFrame:CGRectMake(btnPoint.frame.origin.x + btnPoint.frame.size.width/2.0 - 15, btnPoint.frame.origin.y - 30, 30, 30)];
                 pointLabelImg.image = [UIImage imageNamed:@"ic_arrow"];
